@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginNeu"
+    android:stretchColumns="1">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/TV_name"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:paddingLeft="5dp"
+            android:text="Name:" />
+        <EditText
+            android:id="@+id/TV_name_input"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"/>
+
+
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TV_PW"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:paddingLeft="5dp"
+
+            android:text="Passwort:" />
+
+        <EditText
+            android:id="@+id/TV_PW_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:id="@+id/SendeAnmeldeDaten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="verifiziere"
+            android:text="Anmelden"
+            android:textAlignment="center" />
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginNeu"
+    android:stretchColumns="1">
+
+    <TextView
+        android:id="@+id/text_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TableRow>
+
+        <Button
+            android:id="@+id/TesteNot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="TesteNot"
+            android:textAlignment="center" />
+
+
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/Alarmfenster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Alarmfenster zeigen"
+            android:textAlignment="center" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/Beenden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Alarmfenster beenden"
+            android:textAlignment="center" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/Scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Scanner starten"
+            android:textAlignment="center" />
+    </TableRow>
+
+
+
+</TableLayout>
