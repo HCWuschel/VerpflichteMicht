@@ -1,5 +1,6 @@
 package com.example.verpflichtemicht.ui.home;
 
+import android.content.SharedPreferences;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,9 +58,11 @@ public class HomeFragment extends Fragment {
             webView.restoreState(savedInstanceState);
         else {
             webView.getSettings().setUseWideViewPort(true);
+            SharedPreferences sharedPref = getContext().getSharedPreferences("AppData",0);
+            String Authentifizierungstoken = sharedPref.getString("Authentifizierungstokens",null);
+            String Bootinfo = sharedPref.getString("Bootinfo","leereBootinfo");
 
-
-            webView.loadUrl("https://192.168.178.32:443/verpflichtemich/index.php");
+            webView.loadUrl("https://hardcorewuschel.de/Authentifizierungstoken="+Authentifizierungstoken);
             WebSettings webSettings = webView.getSettings();
             webSettings.setJavaScriptEnabled(true);
             webView.getSettings().setLoadWithOverviewMode(true);

@@ -2,17 +2,19 @@ package com.example.verpflichtemicht;
 
 import android.annotation.SuppressLint;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PersistableBundle;
-import android.os.PowerManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +24,8 @@ import android.view.WindowManager;
 
 import com.example.verpflichtemicht.Klassen.Alarmhelper;
 import com.example.verpflichtemicht.databinding.ActivityAlarmFensterBinding;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -263,6 +267,42 @@ public class AlarmFenster extends AppCompatActivity {
             }
         }
     }
+    public void ladescan(){
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Volume up to flash on");
+        options.setBeepEnabled(true);
+        options.setOrientationLocked(true);
+        options.setCaptureActivity(CaptureAct.class);
+        barLaucher.launch(options);
+    }
+    ActivityResultLauncher<ScanOptions> barLaucher = registerForActivityResult(new ScanContract(), result->
+    {
+        Log.d("logapi", "ActivityResultLauncher");
+
+        if(result.getContents() !=null)
+        {
+            Log.d("logapi", "NotNull");
+            try {
+
+                Log.d("logapi", "Builder da");
+                Log.d("logapi", result.getContents());
+                if(result.getContents().equals("Til")){
+                    SharedPreferences sharedPref = this.getSharedPreferences("AppData",0);
+
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putBoolean("AlarmAus", true);
+
+
+                    editor.commit();
+                    finish();
+                }
+
+            } catch (Exception e) {
+                Log.d("logapi", e.toString());
+            }
+
+        }
+    });
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -282,11 +322,12 @@ public class AlarmFenster extends AppCompatActivity {
         Boolean AlarmAus = sharedPref.getBoolean("AlarmAus",false);
 
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean("AlarmAus", false);
+        editor.putBoolean("AlarmAus", true);
         editor.commit();
         Boolean AlarmAus2 = sharedPref.getBoolean("AlarmAus",false);
 
         Log.d("logapi", AlarmAus2.toString());
+        ladescan();
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Alarmhelper {
         Intent intent = new Intent(context, AlarmKommtReceiver.class);
         intent.setAction(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context.getApplicationContext(), 234324243, intent, 0);
-        alarmManager.setExactAndAllowWhileIdle (AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + (10 * 1000), pendingIntent);
+        alarmManager.setExactAndAllowWhileIdle (AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + (1 * 1000), pendingIntent);
         Log.d("logapi", "Alarm wurde gesetzt");
 
     }

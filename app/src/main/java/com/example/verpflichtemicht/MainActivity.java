@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
         //VorbereitungTestung();
-       // StartRoutine();
+       StartRoutine();
         //Testzugang();
         TestderBerechtigungen();
         //requestCamera();

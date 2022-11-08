@@ -35,7 +35,7 @@ public class TokenThema {
     public void TokenAbholen(LoginNeu loginNeu, View view) {
         Log.d("logapi", "Anfrage kommt");
 
-        String url = "http://192.168.178.32:80/verpflichtemich/tokencheck.php?aufgabe=TokenAbholen&anmeldename=" + this.AnmeldeName + "&PW=" + this.Passwort;
+        String url = "https://hardcorewuschel.de/tokencheck.php?aufgabe=TokenAbholen&anmeldename=" + this.AnmeldeName + "&PW=" + this.Passwort;
         Log.d("logapi", url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -99,7 +99,7 @@ public class TokenThema {
 
 
     public void Tokenvalidierung(MainActivity mainActivity) {
-        String url = "http://192.168.178.32:80/verpflichtemich/tokencheck.php?aufgabe=PruefeToken&Authentifizierungstoken=" + this.Token + "&UserID=" + this.UserID;
+        String url = "https://hardcorewuschel.de/tokencheck.php?aufgabe=PruefeToken&Authentifizierungstoken=" + this.Token + "&UserID=" + this.UserID;
         Log.d("logapi", url);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
